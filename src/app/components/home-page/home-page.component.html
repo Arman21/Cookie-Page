@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand white" [routerLink]="['/home-page',storage.title[0]]" title="BMW" 
+    style="text-decoration:underline;">B M W</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link white" [routerLink]="['/home-page',storage.title[0]]" 
+                [routerLinkActive]="['activeClass']"
+                >{{ storage.title[0] }} 
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link white" [routerLink]="['/about-page',storage.title[1]]" 
+                [routerLinkActive]="['activeClass']">
+                    {{ storage.title[1] }}
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle white" id="navbarDropdown" role="button" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    MORE...
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item">Contacts*</a>
+                    <a class="dropdown-item">Career*</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item">Trade*</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-sc-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="messageDiv" *ngIf="storage.toShow">
+    <p class="title">{{ case }} PAGE</p>
+    <p class="message">
+        We use cookies to optimise and continuously improve our website for individual users like you.Please
+        see “Cookies” to learn more about how they are used on our website.Click “Accept cookies” to activate
+        them or “Reject cookies” if you do not want them.You can change your settings here at any time.
+    </p>
+    <button type="button" class="clickable" title="click here" (click)="storage.sendDates()">ACCEPT</button>
+    <button type="button" class="clickable button2" title="click here" (click)="storage.toRemove()">CANCEL</button>
+</div>
+
